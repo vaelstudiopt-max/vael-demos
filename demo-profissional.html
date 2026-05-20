@@ -3,100 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="page-title">Serviços Profissionais — Demo VAEL</title>
+<title id="page-title">Serviços Profissionais — VAEL</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#080a0d;--bg2:#0e1118;--acc:#8fa8c4;--acc2:#b0c8e0;--white:#edf0f5;--muted:#3d4655;--border:rgba(143,168,196,0.15)}
+:root{--bg:#f6f7f8;--white:#ffffff;--black:#0d0d0d;--acc:#4a6a8a;--muted:#7a8898;--border:#e0e4e8;--light:#eaecef}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif}
-.vael-badge{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,10,13,0.97);border-bottom:1px solid var(--border);padding:8px 24px;display:flex;justify-content:space-between;align-items:center}
-.vael-badge span{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted)}
-.vael-badge a{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc);text-decoration:none}
-nav{position:fixed;top:33px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:24px 60px;background:rgba(8,10,13,0.96);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:0.2em;color:var(--white)}
-.nav-links{display:flex;gap:32px}
-.nav-links a{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(237,240,245,0.5);text-decoration:none;transition:color 0.3s}
-.nav-links a:hover{color:var(--acc)}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 60px 100px;position:relative;max-width:100%}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(143,168,196,0.06),transparent 65%)}
-.hero-badge{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--border);padding:8px 20px;margin-bottom:40px}
-.hero-badge span{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--acc)}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,8vw,88px);font-weight:300;line-height:1;color:var(--white);margin-bottom:24px;max-width:800px}
+body{background:var(--bg);color:var(--black);font-family:'Outfit',sans-serif}
+.badge{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);padding:7px 40px;display:flex;justify-content:space-between;align-items:center}
+.badge span{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.badge a{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc);text-decoration:none}
+nav{position:fixed;top:33px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(246,247,248,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:0.2em;color:var(--black)}
+.nav-links{display:flex;gap:36px}
+.nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.3s}
+.nav-links a:hover{color:var(--black)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 60px 80px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:8px 20px;margin-bottom:40px}
+.hero-badge span{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,8vw,88px);font-weight:300;line-height:1;color:var(--black);margin-bottom:20px;max-width:800px}
 .hero-title em{color:var(--acc);font-style:italic}
-.hero-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:48px;max-width:520px}
-.hero-cta{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-.btn{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:16px 40px;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block}
-.btn-blue{background:var(--acc);color:var(--bg)}
-.btn-blue:hover{background:var(--acc2)}
-.btn-outline{border:1px solid var(--border);color:var(--white)}
-.btn-outline:hover{border-color:var(--acc);color:var(--acc)}
-.divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
-section{padding:100px 60px;max-width:1100px;margin:0 auto}
-.label{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--acc);margin-bottom:48px;display:flex;align-items:center;gap:16px}
-.label::after{content:'';width:40px;height:1px;background:var(--acc);opacity:0.4}
-.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.area-card{padding:48px 36px;border:1px solid var(--border);transition:all 0.3s;position:relative;overflow:hidden}
-.area-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--acc);transition:height 0.4s ease}
-.area-card:hover{border-color:rgba(143,168,196,0.3);background:rgba(143,168,196,0.02)}
-.area-card:hover::before{height:100%}
-.area-icon{font-size:24px;margin-bottom:20px;color:var(--acc)}
-.area-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--white);margin-bottom:12px}
-.area-items{font-size:13px;font-weight:300;color:var(--muted);line-height:2}
+.hero-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:48px;max-width:480px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:15px 40px;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;font-weight:400}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-outline{border:1px solid #c8ccd0;color:var(--black)}
+.btn-outline:hover{border-color:var(--black)}
+.divider{height:1px;background:var(--border)}
+section{padding:100px 60px;max-width:1080px;margin:0 auto}
+.label{font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--acc);margin-bottom:52px;display:flex;align-items:center;gap:16px}
+.label::after{content:'';width:32px;height:1px;background:var(--acc);opacity:0.5}
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.area{background:var(--bg);padding:44px 36px;transition:background 0.3s}
+.area:hover{background:var(--white)}
+.area-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--black);margin-bottom:16px}
+.area-items{font-size:13px;font-weight:300;color:var(--muted);line-height:2.2}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,50px);font-weight:300;line-height:1.2;color:var(--white);margin-bottom:24px}
+.about-visual{height:400px;background:var(--light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.about-visual span{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--border)}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);font-weight:300;line-height:1.15;color:var(--black);margin-bottom:24px}
 .about-title em{color:var(--acc);font-style:italic}
-.about-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:16px}
-.credentials{display:flex;flex-direction:column;gap:2px;margin-top:32px}
-.cred{display:flex;align-items:center;gap:16px;padding:14px 20px;border:1px solid var(--border)}
-.cred-dot{width:6px;height:6px;background:var(--acc);flex-shrink:0}
-.cred-text{font-size:13px;font-weight:300;color:rgba(237,240,245,0.7)}
-.visual-box{height:420px;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.visual-box::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(143,168,196,0.03) 60px,rgba(143,168,196,0.03) 62px)}
-.visual-box span{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(143,168,196,0.1);position:relative;z-index:1}
-.cta-section{text-align:center;padding:120px 60px;background:var(--bg2);margin:0}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:var(--white);margin-bottom:16px}
+.about-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:16px}
+.creds{display:flex;flex-direction:column;gap:1px;margin-top:28px;background:var(--border)}
+.cred{background:var(--bg);padding:13px 20px;display:flex;align-items:center;gap:12px}
+.cred-dot{width:5px;height:5px;background:var(--acc);flex-shrink:0}
+.cred-text{font-size:13px;font-weight:300;color:var(--muted)}
+.cta-wrap{background:var(--black);padding:120px 60px;text-align:center}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);font-weight:300;color:var(--white);margin-bottom:14px;line-height:1.1}
 .cta-title em{color:var(--acc);font-style:italic}
-.cta-sub{font-size:14px;color:var(--muted);margin-bottom:48px}
-.contact-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.info-item{display:flex;flex-direction:column;gap:4px;align-items:center}
-.info-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--acc)}
+.cta-sub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:48px}
+.info-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.info-item{display:flex;flex-direction:column;gap:6px;align-items:center}
+.info-label{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--acc)}
 .info-val{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)}
-footer{border-top:1px solid var(--border);padding:32px 60px;display:flex;justify-content:space-between;align-items:center}
+.btn-light{background:var(--white);color:var(--black)}
+footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
 footer span{font-size:11px;color:var(--muted)}
 footer a{font-size:11px;color:var(--acc);text-decoration:none}
-@media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}section{padding:60px 24px}.areas-grid,.about-grid{grid-template-columns:1fr}.cta-section{padding:60px 24px}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}}
+@media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}section{padding:64px 24px}.areas-grid,.about-grid{grid-template-columns:1fr}.hero{padding:120px 24px 60px}.cta-wrap{padding:80px 24px}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}}
 </style>
 </head>
 <body>
-<div class="vael-badge">
-  <span>Demo exclusiva criada por VAEL</span>
-  <a href="https://vael.studio">vael.studio</a>
-</div>
+<div class="badge"><span>Demo exclusiva — VAEL Studio</span><a href="https://vael.studio">vael.studio</a></div>
 <nav>
   <div class="nav-logo" data-nome>Escritório</div>
-  <div class="nav-links">
-    <a href="#areas">Áreas</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contacto">Contacto</a>
-  </div>
+  <div class="nav-links"><a href="#areas">Áreas</a><a href="#sobre">Sobre</a><a href="#contacto">Contacto</a></div>
 </nav>
-<section class="hero" style="max-width:100%">
-  <div class="hero-badge"><span>Serviços Profissionais · Lisboa</span></div>
+<div class="hero">
+  <div class="hero-badge"><span>Serviços Jurídicos · Lisboa</span></div>
   <h1 class="hero-title"><span data-nome>Costa & Silva</span><br><em>Advogados</em></h1>
   <p class="hero-sub">Assessoria jurídica especializada para particulares e empresas. Rigor, confidencialidade e resultados comprovados.</p>
-  <div class="hero-cta">
-    <a href="#contacto" class="btn btn-blue">Marcar Consulta</a>
+  <div class="hero-actions">
+    <a href="#contacto" class="btn btn-dark">Marcar Consulta</a>
     <a href="#areas" class="btn btn-outline">Áreas de Prática</a>
   </div>
-</section>
+</div>
 <div class="divider"></div>
 <section id="areas">
   <div class="label">Áreas de prática</div>
   <div class="areas-grid">
-    <div class="area-card"><div class="area-icon">⚖</div><div class="area-name">Direito Civil</div><div class="area-items">Contratos<br>Família e herança<br>Arrendamento<br>Responsabilidade civil</div></div>
-    <div class="area-card"><div class="area-icon">🏢</div><div class="area-name">Direito Empresarial</div><div class="area-items">Constituição de empresas<br>Contratos comerciais<br>Fusões e aquisições<br>Contencioso</div></div>
-    <div class="area-card"><div class="area-icon">🏠</div><div class="area-name">Direito Imobiliário</div><div class="area-items">Compra e venda<br>Due diligence<br>Arrendamento<br>Licenciamento</div></div>
+    <div class="area"><div class="area-name">Direito Civil</div><div class="area-items">Contratos<br>Família e herança<br>Arrendamento<br>Responsabilidade civil</div></div>
+    <div class="area"><div class="area-name">Direito Empresarial</div><div class="area-items">Constituição de empresas<br>Contratos comerciais<br>Fusões e aquisições<br>Contencioso</div></div>
+    <div class="area"><div class="area-name">Direito Imobiliário</div><div class="area-items">Compra e venda<br>Due diligence<br>Arrendamento<br>Licenciamento</div></div>
   </div>
 </section>
 <div class="divider"></div>
@@ -104,33 +92,28 @@ footer a{font-size:11px;color:var(--acc);text-decoration:none}
   <div class="about-grid">
     <div>
       <div class="label">O escritório</div>
-      <h2 class="about-title">Experiência e <em>rigor</em> ao seu serviço</h2>
-      <p class="about-text">O <span data-nome>nosso escritório</span> presta assessoria jurídica de qualidade a particulares e empresas, com um acompanhamento personalizado em cada caso.</p>
-      <p class="about-text">Prezamos pela transparência, pelo rigor técnico e pela confiança que os nossos clientes depositam em nós.</p>
-      <div class="credentials">
+      <h2 class="about-title">Experiência e <em>rigor</em><br>ao seu serviço</h2>
+      <p class="about-text">O <span data-nome>nosso escritório</span> presta assessoria jurídica a particulares e empresas, com acompanhamento personalizado em cada caso.</p>
+      <p class="about-text">Prezamos pela transparência, rigor técnico e confiança.</p>
+      <div class="creds">
         <div class="cred"><div class="cred-dot"></div><span class="cred-text">Membro da Ordem dos Advogados de Portugal</span></div>
         <div class="cred"><div class="cred-dot"></div><span class="cred-text">Mais de 15 anos de experiência</span></div>
         <div class="cred"><div class="cred-dot"></div><span class="cred-text">Consulta inicial gratuita</span></div>
       </div>
     </div>
-    <div class="visual-box"><span>§</span></div>
+    <div class="about-visual"><span>§</span></div>
   </div>
 </section>
-<div class="divider"></div>
-<div class="cta-section" id="contacto">
+<div class="cta-wrap" id="contacto">
   <h2 class="cta-title">Agende a sua <em>consulta</em></h2>
   <p class="cta-sub">Primeira consulta gratuita. Confidencialidade garantida.</p>
-  <div class="contact-row">
+  <div class="info-row">
     <div class="info-item"><span class="info-label">Telefone</span><span class="info-val" data-tel>+351 900 000 000</span></div>
     <div class="info-item"><span class="info-label">Localização</span><span class="info-val" data-morada>Lisboa</span></div>
   </div>
-  <a href="#" class="btn btn-blue" data-tel-href>Ligar Agora</a>
+  <a href="#" class="btn btn-light" data-tel-href>Ligar Agora</a>
 </div>
-<footer>
-  <span data-nome>Escritório</span>
-  <span data-morada>Lisboa</span>
-  <a href="https://vael.studio">Site criado por VAEL</a>
-</footer>
+<footer><span data-nome>Escritório</span><span data-morada>Lisboa</span><a href="https://vael.studio">Site criado por VAEL</a></footer>
 <script>
 const p=new URLSearchParams(window.location.search);
 const nome=p.get('nome')||'Costa & Silva Advogados';
