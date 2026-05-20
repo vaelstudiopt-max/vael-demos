@@ -3,147 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="page-title">Remodelação — Demo VAEL</title>
+<title id="page-title">Remodelação — VAEL</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#070c10;--bg2:#0e1520;--acc:#5b8fa8;--acc2:#7eb8d4;--white:#eef2f5;--muted:#3a4a58;--border:rgba(91,143,168,0.15)}
+:root{--bg:#f5f6f7;--white:#ffffff;--black:#0d0d0d;--acc:#5a7a8a;--muted:#8a9298;--border:#e2e6e8;--light:#eceff0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif}
-.vael-badge{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,12,16,0.97);border-bottom:1px solid var(--border);padding:8px 24px;display:flex;justify-content:space-between;align-items:center}
-.vael-badge span{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted)}
-.vael-badge a{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc);text-decoration:none}
-nav{position:fixed;top:33px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:24px 60px;background:linear-gradient(to bottom,rgba(7,12,16,0.95),transparent)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:0.25em;color:var(--white)}
-.nav-links{display:flex;gap:32px}
-.nav-links a{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(238,242,245,0.5);text-decoration:none;transition:color 0.3s}
-.nav-links a:hover{color:var(--acc)}
-.hero{min-height:100vh;display:flex;align-items:flex-end;padding:0 60px 100px;max-width:100%;background:linear-gradient(to bottom right,var(--bg),var(--bg2));position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;border-left:1px solid var(--border);background:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(91,143,168,0.02) 40px,rgba(91,143,168,0.02) 80px)}
-.hero-inner{padding-bottom:0;position:relative}
+body{background:var(--bg);color:var(--black);font-family:'Outfit',sans-serif}
+.badge{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);padding:7px 40px;display:flex;justify-content:space-between;align-items:center}
+.badge span{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.badge a{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc);text-decoration:none}
+nav{position:fixed;top:33px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(245,246,247,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:0.2em;color:var(--black)}
+.nav-links{display:flex;gap:36px}
+.nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.3s}
+.nav-links a:hover{color:var(--black)}
+.hero{min-height:100vh;display:flex;align-items:flex-end;padding:0 60px 100px}
+.hero-inner{max-width:800px}
 .hero-eyebrow{font-size:10px;letter-spacing:0.5em;text-transform:uppercase;color:var(--acc);margin-bottom:20px}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,96px);font-weight:300;line-height:0.95;color:var(--white);margin-bottom:32px;max-width:800px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,96px);font-weight:300;line-height:0.95;color:var(--black);margin-bottom:32px}
 .hero-title em{color:var(--acc);font-style:italic}
-.hero-sub{font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:48px;max-width:440px}
-.hero-stats{display:flex;gap:48px;margin-bottom:48px}
-.stat{}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--acc)}
-.stat-label{font-size:11px;letter-spacing:0.1em;color:var(--muted)}
-.btn{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:16px 40px;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block}
-.btn-blue{background:var(--acc);color:var(--bg)}
-.btn-blue:hover{background:var(--acc2)}
-.btn-outline{border:1px solid var(--border);color:var(--white);margin-left:12px}
-.btn-outline:hover{border-color:var(--acc);color:var(--acc)}
-.divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
-section{padding:100px 60px;max-width:1100px;margin:0 auto}
-.label{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--acc);margin-bottom:48px;display:flex;align-items:center;gap:16px}
-.label::after{content:'';width:40px;height:1px;background:var(--acc);opacity:0.4}
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
-.svc-card{padding:48px 40px;border:1px solid var(--border);transition:all 0.3s}
-.svc-card:hover{border-color:var(--acc);background:rgba(91,143,168,0.03)}
-.svc-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:rgba(91,143,168,0.2);margin-bottom:16px}
-.svc-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--white);margin-bottom:12px}
+.hero-stats{display:flex;gap:56px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--border)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--black);line-height:1}
+.stat-label{font-size:11px;letter-spacing:0.08em;color:var(--muted);margin-top:4px}
+.hero-actions{display:flex;gap:12px}
+.btn{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:15px 40px;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;font-weight:400}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-outline{border:1px solid #ccd0d2;color:var(--black)}
+.btn-outline:hover{border-color:var(--black)}
+.divider{height:1px;background:var(--border)}
+section{padding:100px 60px;max-width:1080px;margin:0 auto}
+.label{font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--acc);margin-bottom:52px;display:flex;align-items:center;gap:16px}
+.label::after{content:'';width:32px;height:1px;background:var(--acc);opacity:0.5}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.svc-card{background:var(--bg);padding:44px 40px;transition:background 0.3s}
+.svc-card:hover{background:var(--white)}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--black);margin-bottom:12px}
 .svc-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
-.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.portfolio-item{aspect-ratio:4/3;border:1px solid var(--border);display:flex;align-items:flex-end;padding:16px;overflow:hidden;position:relative;cursor:pointer;transition:all 0.3s}
-.portfolio-item:hover{border-color:var(--acc)}
-.portfolio-item:nth-child(1){background:linear-gradient(135deg,#0d1820,#152030)}
-.portfolio-item:nth-child(2){background:linear-gradient(135deg,#0a1015,#122030)}
-.portfolio-item:nth-child(3){background:linear-gradient(135deg,#101520,#0d1828)}
-.portfolio-item::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,12,16,0.8),transparent 50%)}
-.portfolio-tag{position:relative;z-index:1;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--acc)}
-.process{display:flex;flex-direction:column;gap:2px}
-.process-step{display:flex;gap:32px;align-items:flex-start;padding:32px;border:1px solid var(--border);transition:all 0.3s}
-.process-step:hover{border-color:var(--acc)}
-.step-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(91,143,168,0.2);min-width:60px}
-.step-content{}
-.step-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);margin-bottom:8px}
+.process{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.step{background:var(--bg);padding:32px 40px;display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:start;transition:background 0.3s}
+.step:hover{background:var(--white)}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--border);line-height:1}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--black);margin-bottom:6px}
 .step-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.7}
-.cta-section{text-align:center;padding:120px 60px}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:var(--white);margin-bottom:16px}
+.cta-wrap{background:var(--black);padding:120px 60px;text-align:center}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);font-weight:300;color:var(--white);margin-bottom:14px;line-height:1.1}
 .cta-title em{color:var(--acc);font-style:italic}
-.cta-sub{font-size:14px;color:var(--muted);margin-bottom:48px}
-.contact-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.info-item{display:flex;flex-direction:column;gap:4px;align-items:center}
-.info-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--acc)}
+.cta-sub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:48px}
+.info-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.info-item{display:flex;flex-direction:column;gap:6px;align-items:center}
+.info-label{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--acc)}
 .info-val{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)}
-footer{border-top:1px solid var(--border);padding:32px 60px;display:flex;justify-content:space-between;align-items:center}
+.btn-light{background:var(--white);color:var(--black)}
+footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
 footer span{font-size:11px;color:var(--muted)}
 footer a{font-size:11px;color:var(--acc);text-decoration:none}
-@media(max-width:768px){.hero{padding:120px 24px 60px;align-items:flex-start}.hero-stats{flex-wrap:wrap;gap:24px}nav{padding:16px 20px}.nav-links{display:none}section{padding:60px 24px}.services-grid,.portfolio-grid{grid-template-columns:1fr}.cta-section{padding:60px 24px}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}}
+@media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}.hero{padding:120px 24px 60px;align-items:flex-start}.hero-stats{flex-wrap:wrap;gap:24px}section{padding:64px 24px}.services-grid{grid-template-columns:1fr}.cta-wrap{padding:80px 24px}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}}
 </style>
 </head>
 <body>
-<div class="vael-badge">
-  <span>Demo exclusiva criada por VAEL</span>
-  <a href="https://vael.studio">vael.studio</a>
-</div>
+<div class="badge"><span>Demo exclusiva — VAEL Studio</span><a href="https://vael.studio">vael.studio</a></div>
 <nav>
   <div class="nav-logo" data-nome>Remodelações</div>
-  <div class="nav-links">
-    <a href="#servicos">Serviços</a>
-    <a href="#portfolio">Portfólio</a>
-    <a href="#processo">Processo</a>
-    <a href="#orcamento">Orçamento</a>
-  </div>
+  <div class="nav-links"><a href="#servicos">Serviços</a><a href="#processo">Processo</a><a href="#orcamento">Orçamento</a></div>
 </nav>
 <div class="hero">
   <div class="hero-inner">
     <p class="hero-eyebrow">Especialistas em</p>
-    <h1 class="hero-title">Remodelação <em>que transforma</em> espaços</h1>
-    <p class="hero-sub">Projetos residenciais e comerciais entregues com rigor e dentro do prazo. Mais de 200 obras concluídas em Lisboa e arredores.</p>
+    <h1 class="hero-title">Remodelação<br><em>que transforma</em></h1>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Obras concluídas</div></div>
-      <div class="stat"><div class="stat-num">12</div><div class="stat-label">Anos de experiência</div></div>
-      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Clientes satisfeitos</div></div>
+      <div><div class="stat-num">200+</div><div class="stat-label">Obras concluídas</div></div>
+      <div><div class="stat-num">12</div><div class="stat-label">Anos de experiência</div></div>
+      <div><div class="stat-num">98%</div><div class="stat-label">Clientes satisfeitos</div></div>
     </div>
-    <a href="#orcamento" class="btn btn-blue">Pedir Orçamento</a>
-    <a href="#portfolio" class="btn btn-outline">Ver Portfólio</a>
+    <div class="hero-actions">
+      <a href="#orcamento" class="btn btn-dark">Pedir Orçamento</a>
+      <a href="#servicos" class="btn btn-outline">Serviços</a>
+    </div>
   </div>
 </div>
 <div class="divider"></div>
 <section id="servicos">
   <div class="label">O que fazemos</div>
   <div class="services-grid">
-    <div class="svc-card"><div class="svc-num">01</div><div class="svc-name">Remodelação de Interiores</div><div class="svc-desc">Cozinhas, casas de banho, salas e quartos. Projetos completos desde o design até à execução final.</div></div>
-    <div class="svc-card"><div class="svc-num">02</div><div class="svc-name">Obras de Construção</div><div class="svc-desc">Ampliações, alvenaria, estruturas e acabamentos com materiais de qualidade comprovada.</div></div>
-    <div class="svc-card"><div class="svc-num">03</div><div class="svc-name">Pintura & Acabamentos</div><div class="svc-desc">Interior e exterior. Estuques, vernizes, revestimentos e técnicas decorativas especiais.</div></div>
-    <div class="svc-card"><div class="svc-num">04</div><div class="svc-name">Instalações</div><div class="svc-desc">Elétrica, canalização, climatização e sistemas de segurança. Licenciados e certificados.</div></div>
-  </div>
-</section>
-<div class="divider"></div>
-<section id="portfolio">
-  <div class="label">Portfólio</div>
-  <div class="portfolio-grid">
-    <div class="portfolio-item"><span class="portfolio-tag">Cozinha · Lisboa</span></div>
-    <div class="portfolio-item"><span class="portfolio-tag">Casa de banho · Cascais</span></div>
-    <div class="portfolio-item"><span class="portfolio-tag">Sala · Sintra</span></div>
+    <div class="svc-card"><div class="svc-name">Remodelação de Interiores</div><div class="svc-desc">Cozinhas, casas de banho, salas e quartos. Do design à execução final.</div></div>
+    <div class="svc-card"><div class="svc-name">Obras de Construção</div><div class="svc-desc">Ampliações, alvenaria, estruturas e acabamentos de qualidade.</div></div>
+    <div class="svc-card"><div class="svc-name">Pintura & Acabamentos</div><div class="svc-desc">Interior e exterior. Estuques, vernizes e revestimentos especiais.</div></div>
+    <div class="svc-card"><div class="svc-name">Instalações</div><div class="svc-desc">Elétrica, canalização e climatização. Licenciados e certificados.</div></div>
   </div>
 </section>
 <div class="divider"></div>
 <section id="processo">
   <div class="label">Como trabalhamos</div>
   <div class="process">
-    <div class="process-step"><div class="step-num">01</div><div class="step-content"><div class="step-title">Visita e Orçamento Gratuito</div><div class="step-desc">Deslocamo-nos ao local, avaliamos o espaço e entregamos orçamento detalhado sem compromisso.</div></div></div>
-    <div class="process-step"><div class="step-num">02</div><div class="step-content"><div class="step-title">Projeto e Planeamento</div><div class="step-desc">Definimos materiais, prazos e fases da obra. Transparência total desde o início.</div></div></div>
-    <div class="process-step"><div class="step-num">03</div><div class="step-content"><div class="step-title">Execução e Entrega</div><div class="step-desc">Obra executada com rigor e limpeza. Entrega no prazo combinado com garantia de 2 anos.</div></div></div>
+    <div class="step"><div class="step-num">01</div><div><div class="step-title">Visita e Orçamento Gratuito</div><div class="step-desc">Deslocamo-nos ao local e entregamos orçamento detalhado sem compromisso.</div></div></div>
+    <div class="step"><div class="step-num">02</div><div><div class="step-title">Projeto e Planeamento</div><div class="step-desc">Definimos materiais, prazos e fases da obra. Transparência total.</div></div></div>
+    <div class="step"><div class="step-num">03</div><div><div class="step-title">Execução e Entrega</div><div class="step-desc">Entrega no prazo combinado com garantia de 2 anos.</div></div></div>
   </div>
 </section>
-<div class="divider"></div>
-<div class="cta-section" id="orcamento">
+<div class="cta-wrap" id="orcamento">
   <h2 class="cta-title">Peça o seu <em>orçamento</em></h2>
-  <p class="cta-sub">Visita gratuita e orçamento sem compromisso. Resposta em 24 horas.</p>
-  <div class="contact-row">
+  <p class="cta-sub">Visita gratuita sem compromisso. Resposta em 24 horas.</p>
+  <div class="info-row">
     <div class="info-item"><span class="info-label">Telefone</span><span class="info-val" data-tel>+351 900 000 000</span></div>
-    <div class="info-item"><span class="info-label">Zona de trabalho</span><span class="info-val" data-morada>Lisboa e arredores</span></div>
+    <div class="info-item"><span class="info-label">Zona</span><span class="info-val" data-morada>Lisboa e arredores</span></div>
   </div>
-  <a href="#" class="btn btn-blue" data-tel-href>Ligar Agora</a>
+  <a href="#" class="btn btn-light" data-tel-href>Ligar Agora</a>
 </div>
-<footer>
-  <span data-nome>Remodelações</span>
-  <span data-morada>Lisboa</span>
-  <a href="https://vael.studio">Site criado por VAEL</a>
-</footer>
+<footer><span data-nome>Remodelações</span><span data-morada>Lisboa</span><a href="https://vael.studio">Site criado por VAEL</a></footer>
 <script>
 const p=new URLSearchParams(window.location.search);
 const nome=p.get('nome')||'Remodelações Lisboa';
