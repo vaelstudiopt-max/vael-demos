@@ -4,106 +4,131 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Serviços Profissionais — VAEL</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#f6f7f8;--white:#ffffff;--black:#0d0d0d;--acc:#4a6a8a;--muted:#7a8898;--border:#e0e4e8;--light:#eaecef}
+:root{--bg:#f5f6f7;--white:#ffffff;--black:#111010;--acc:#3a5878;--muted:#6a7888;--border:#dce0e4;--cream:#e8ecf0;--dark:#0e1520}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--black);font-family:'Outfit',sans-serif}
-.badge{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);padding:7px 40px;display:flex;justify-content:space-between;align-items:center}
-.badge span{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
-.badge a{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc);text-decoration:none}
-nav{position:fixed;top:33px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(246,247,248,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:0.2em;color:var(--black)}
-.nav-links{display:flex;gap:36px}
-.nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.3s}
+body{background:var(--white);color:var(--black);font-family:'Outfit',sans-serif}
+.badge{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);padding:7px 40px;display:flex;justify-content:space-between}
+.badge span{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35)}
+.badge a{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--acc);text-decoration:none}
+nav{position:fixed;top:31px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 56px;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:19px;font-weight:400;letter-spacing:0.12em;color:var(--black)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.25s}
 .nav-links a:hover{color:var(--black)}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 60px 80px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:8px 20px;margin-bottom:40px}
-.hero-badge span{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted)}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,8vw,88px);font-weight:300;line-height:1;color:var(--black);margin-bottom:20px;max-width:800px}
-.hero-title em{color:var(--acc);font-style:italic}
-.hero-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:48px;max-width:480px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.btn{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:15px 40px;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;font-weight:400}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:96px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:64px 56px}
+.hero-tag{font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--acc)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(38px,4.8vw,62px);font-weight:700;line-height:1.05;color:var(--black);margin-bottom:20px}
+.hero-title em{font-weight:400;font-style:italic;color:var(--acc)}
+.hero-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;margin-bottom:36px;max-width:380px}
+.hero-meta{display:flex;gap:32px;margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+.meta-item{display:flex;flex-direction:column;gap:3px}
+.meta-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--acc)}
+.meta-val{font-size:15px;font-weight:500;color:var(--black)}
+.actions{display:flex;gap:10px}
+.btn{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:14px 36px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block;font-weight:500}
 .btn-dark{background:var(--black);color:var(--white)}
-.btn-outline{border:1px solid #c8ccd0;color:var(--black)}
-.btn-outline:hover{border-color:var(--black)}
+.btn-out{border:1px solid var(--border);color:var(--black)}
+.btn-out:hover{border-color:var(--black)}
+.hero-right{background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:48px;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;top:40px;left:40px;right:40px;bottom:40px;border:1px solid rgba(255,255,255,0.05)}
+.hero-visual-title{font-family:'Playfair Display',serif;font-size:clamp(56px,8vw,108px);font-weight:700;color:rgba(58,88,120,0.15);line-height:0.9;position:relative;z-index:1}
+.hero-since{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:16px;position:relative;z-index:1}
 .divider{height:1px;background:var(--border)}
-section{padding:100px 60px;max-width:1080px;margin:0 auto}
-.label{font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--acc);margin-bottom:52px;display:flex;align-items:center;gap:16px}
-.label::after{content:'';width:32px;height:1px;background:var(--acc);opacity:0.5}
+.sec{padding:72px 56px;max-width:1100px;margin:0 auto}
+.sec-alt{background:var(--bg)}
+.label{font-size:10px;letter-spacing:0.42em;text-transform:uppercase;color:var(--acc);margin-bottom:40px;display:flex;align-items:center;gap:12px}
+.label::after{content:'';width:28px;height:1px;background:var(--acc);opacity:0.6}
 .areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
-.area{background:var(--bg);padding:44px 36px;transition:background 0.3s}
-.area:hover{background:var(--white)}
-.area-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--black);margin-bottom:16px}
-.area-items{font-size:13px;font-weight:300;color:var(--muted);line-height:2.2}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-visual{height:400px;background:var(--light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
-.about-visual span{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--border)}
-.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);font-weight:300;line-height:1.15;color:var(--black);margin-bottom:24px}
-.about-title em{color:var(--acc);font-style:italic}
-.about-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:16px}
-.creds{display:flex;flex-direction:column;gap:1px;margin-top:28px;background:var(--border)}
-.cred{background:var(--bg);padding:13px 20px;display:flex;align-items:center;gap:12px}
+.area{background:var(--white);padding:36px 32px;transition:background 0.25s}
+.sec-alt .area{background:var(--bg)}
+.area:hover{background:var(--cream)}
+.area-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:var(--black);margin-bottom:4px}
+.area-rule{width:20px;height:1px;background:var(--acc);margin:12px 0}
+.area-items{font-size:13px;font-weight:300;color:var(--muted);line-height:2.1}
+.about-grid{display:grid;grid-template-columns:6fr 5fr;gap:64px;align-items:center}
+.about-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1.15;color:var(--black);margin-bottom:20px}
+.about-title em{font-weight:400;font-style:italic;color:var(--acc)}
+.about-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:14px}
+.creds{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:24px}
+.cred{background:var(--white);padding:12px 20px;display:flex;align-items:center;gap:10px}
+.sec-alt .cred{background:var(--bg)}
 .cred-dot{width:5px;height:5px;background:var(--acc);flex-shrink:0}
 .cred-text{font-size:13px;font-weight:300;color:var(--muted)}
-.cta-wrap{background:var(--black);padding:120px 60px;text-align:center}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);font-weight:300;color:var(--white);margin-bottom:14px;line-height:1.1}
-.cta-title em{color:var(--acc);font-style:italic}
-.cta-sub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:48px}
-.info-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.info-item{display:flex;flex-direction:column;gap:6px;align-items:center}
-.info-label{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--acc)}
-.info-val{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)}
+.about-img{height:400px;background:var(--cream);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.about-img::after{content:'';position:absolute;inset:16px;border:1px solid var(--border)}
+.about-img span{font-family:'Playfair Display',serif;font-size:80px;font-weight:700;color:rgba(58,88,120,0.1);position:relative;z-index:1}
+.cta-wrap{background:var(--dark);padding:96px 56px;text-align:center}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4.5vw,54px);font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.1}
+.cta-title em{font-weight:400;font-style:italic;color:var(--acc)}
+.cta-sub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:40px}
+.info-row{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.info-item{display:flex;flex-direction:column;gap:5px;align-items:center}
+.info-label{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--acc)}
+.info-val{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;color:var(--white)}
 .btn-light{background:var(--white);color:var(--black)}
-footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+footer{padding:24px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
 footer span{font-size:11px;color:var(--muted)}
 footer a{font-size:11px;color:var(--acc);text-decoration:none}
-@media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}section{padding:64px 24px}.areas-grid,.about-grid{grid-template-columns:1fr}.hero{padding:120px 24px 60px}.cta-wrap{padding:80px 24px}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}}
+@media(max-width:768px){.hero{grid-template-columns:1fr}.hero-right{display:none}nav{padding:14px 20px}.nav-links{display:none}.hero-left{padding:40px 24px}.sec{padding:52px 24px}.areas-grid,.about-grid{grid-template-columns:1fr}.cta-wrap{padding:72px 24px}footer{flex-direction:column;gap:10px;text-align:center;padding:20px}}
 </style>
 </head>
 <body>
 <div class="badge"><span>Demo exclusiva — VAEL Studio</span><a href="https://vael.studio">vael.studio</a></div>
 <nav>
-  <div class="nav-logo" data-nome>Escritório</div>
+  <div class="logo" data-nome>Escritório</div>
   <div class="nav-links"><a href="#areas">Áreas</a><a href="#sobre">Sobre</a><a href="#contacto">Contacto</a></div>
 </nav>
 <div class="hero">
-  <div class="hero-badge"><span>Serviços Jurídicos · Lisboa</span></div>
-  <h1 class="hero-title"><span data-nome>Costa & Silva</span><br><em>Advogados</em></h1>
-  <p class="hero-sub">Assessoria jurídica especializada para particulares e empresas. Rigor, confidencialidade e resultados comprovados.</p>
-  <div class="hero-actions">
-    <a href="#contacto" class="btn btn-dark">Marcar Consulta</a>
-    <a href="#areas" class="btn btn-outline">Áreas de Prática</a>
+  <div class="hero-left">
+    <p class="hero-tag">Assessoria Jurídica</p>
+    <h1 class="hero-title" data-nome>Costa & Silva<br><em>Advogados</em></h1>
+    <p class="hero-sub">Assessoria especializada para particulares e empresas. Rigor, confidencialidade e resultados comprovados.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-label">Experiência</span><span class="meta-val">15 anos</span></div>
+      <div class="meta-item"><span class="meta-label">Casos ganhos</span><span class="meta-val">95%</span></div>
+      <div class="meta-item"><span class="meta-label">Consulta</span><span class="meta-val">Gratuita</span></div>
+    </div>
+    <div class="actions">
+      <a href="#contacto" class="btn btn-dark">Marcar Consulta</a>
+      <a href="#areas" class="btn btn-out">Áreas de Prática</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual-title" data-nome>C&S.</div>
+    <p class="hero-since">Direito · Rigor · Confiança</p>
   </div>
 </div>
 <div class="divider"></div>
-<section id="areas">
+<div class="sec-alt" id="areas"><div class="sec">
   <div class="label">Áreas de prática</div>
   <div class="areas-grid">
-    <div class="area"><div class="area-name">Direito Civil</div><div class="area-items">Contratos<br>Família e herança<br>Arrendamento<br>Responsabilidade civil</div></div>
-    <div class="area"><div class="area-name">Direito Empresarial</div><div class="area-items">Constituição de empresas<br>Contratos comerciais<br>Fusões e aquisições<br>Contencioso</div></div>
-    <div class="area"><div class="area-name">Direito Imobiliário</div><div class="area-items">Compra e venda<br>Due diligence<br>Arrendamento<br>Licenciamento</div></div>
+    <div class="area"><div class="area-name">Direito Civil</div><div class="area-rule"></div><div class="area-items">Contratos<br>Família e herança<br>Arrendamento<br>Responsabilidade civil</div></div>
+    <div class="area"><div class="area-name">Direito Empresarial</div><div class="area-rule"></div><div class="area-items">Constituição de empresas<br>Contratos comerciais<br>Fusões e aquisições<br>Contencioso</div></div>
+    <div class="area"><div class="area-name">Direito Imobiliário</div><div class="area-rule"></div><div class="area-items">Compra e venda<br>Due diligence<br>Arrendamento<br>Licenciamento</div></div>
   </div>
-</section>
+</div></div>
 <div class="divider"></div>
-<section id="sobre">
+<div id="sobre"><div class="sec">
   <div class="about-grid">
     <div>
       <div class="label">O escritório</div>
-      <h2 class="about-title">Experiência e <em>rigor</em><br>ao seu serviço</h2>
-      <p class="about-text">O <span data-nome>nosso escritório</span> presta assessoria jurídica a particulares e empresas, com acompanhamento personalizado em cada caso.</p>
-      <p class="about-text">Prezamos pela transparência, rigor técnico e confiança.</p>
+      <h2 class="about-title">Experiência e <em>rigor</em> ao seu serviço</h2>
+      <p class="about-text">O <span data-nome>nosso escritório</span> presta assessoria jurídica a particulares e empresas, com acompanhamento personalizado em cada processo.</p>
+      <p class="about-text">Prezamos pela transparência, rigor técnico e pela confiança dos nossos clientes.</p>
       <div class="creds">
         <div class="cred"><div class="cred-dot"></div><span class="cred-text">Membro da Ordem dos Advogados de Portugal</span></div>
         <div class="cred"><div class="cred-dot"></div><span class="cred-text">Mais de 15 anos de experiência</span></div>
-        <div class="cred"><div class="cred-dot"></div><span class="cred-text">Consulta inicial gratuita</span></div>
+        <div class="cred"><div class="cred-dot"></div><span class="cred-text">Primeira consulta sempre gratuita</span></div>
       </div>
     </div>
-    <div class="about-visual"><span>§</span></div>
+    <div class="about-img"><span>§</span></div>
   </div>
-</section>
+</div></div>
 <div class="cta-wrap" id="contacto">
   <h2 class="cta-title">Agende a sua <em>consulta</em></h2>
   <p class="cta-sub">Primeira consulta gratuita. Confidencialidade garantida.</p>
@@ -118,7 +143,7 @@ footer a{font-size:11px;color:var(--acc);text-decoration:none}
 const p=new URLSearchParams(window.location.search);
 const nome=p.get('nome')||'Costa & Silva Advogados';
 const tel=p.get('tel')||'+351 912 345 678';
-const morada=p.get('morada')||'Avenida da Liberdade, Lisboa';
+const morada=p.get('morada')||'Lisboa';
 document.querySelectorAll('[data-nome]').forEach(e=>e.textContent=nome);
 document.querySelectorAll('[data-tel]').forEach(e=>e.textContent=tel);
 document.querySelectorAll('[data-tel-href]').forEach(e=>e.href='tel:'+tel.replace(/\s/g,''));
