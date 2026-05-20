@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Barbearia — VAEL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f6f5f2;--white:#ffffff;--black:#0d0d0d;--acc:#7a6a4a;--muted:#8a8680;--border:#e4e0d8;--light:#efecea}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--black);font-family:'Outfit',sans-serif}
+.badge{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);padding:7px 40px;display:flex;justify-content:space-between;align-items:center}
+.badge span{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.badge a{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc);text-decoration:none}
+nav{position:fixed;top:33px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(246,245,242,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:0.25em;color:var(--black)}
+.nav-links{display:flex;gap:36px}
+.nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.3s}
+.nav-links a:hover{color:var(--black)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 60px 80px}
+.hero-rule{width:48px;height:1px;background:var(--acc);margin-bottom:32px;opacity:0.7}
+.hero-eyebrow{font-size:10px;letter-spacing:0.5em;text-transform:uppercase;color:var(--acc);margin-bottom:16px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,104px);font-weight:300;letter-spacing:0.03em;line-height:0.95;color:var(--black);margin-bottom:28px;max-width:700px}
+.hero-sub{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:48px;max-width:400px}
+.hero-actions{display:flex;gap:12px}
+.btn{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:15px 40px;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;font-weight:400}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-outline{border:1px solid #ccc8c0;color:var(--black)}
+.btn-outline:hover{border-color:var(--black)}
+.divider{height:1px;background:var(--border)}
+section{padding:100px 60px;max-width:1080px;margin:0 auto}
+.label{font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--acc);margin-bottom:52px;display:flex;align-items:center;gap:16px}
+.label::after{content:'';width:32px;height:1px;background:var(--acc);opacity:0.5}
+.prices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.price-card{background:var(--bg);padding:40px 32px;transition:background 0.3s;position:relative}
+.price-card:hover{background:var(--white)}
+.price-card.featured{background:var(--black)}
+.price-card.featured:hover{background:#1a1a1a}
+.featured-tag{position:absolute;top:20px;right:20px;background:var(--acc);color:var(--white);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:4px 10px}
+.price-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:8px}
+.price-card.featured .price-name{color:var(--white)}
+.price-desc{font-size:12px;font-weight:300;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.price-card.featured .price-desc{color:rgba(255,255,255,0.45)}
+.price-val{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--acc);line-height:1}
+.price-val sup{font-size:20px}
+.extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:48px}
+.extra{background:var(--bg);padding:16px 24px;display:flex;justify-content:space-between;transition:background 0.3s}
+.extra:hover{background:var(--white)}
+.extra-name{font-size:13px;font-weight:300;color:var(--muted)}
+.extra-price{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--acc)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-visual{height:400px;background:var(--light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.about-visual span{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--border)}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);font-weight:300;line-height:1.15;color:var(--black);margin-bottom:24px}
+.about-title em{color:var(--acc);font-style:italic}
+.about-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:16px}
+.cta-wrap{background:var(--black);padding:120px 60px;text-align:center}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);font-weight:300;color:var(--white);margin-bottom:14px;line-height:1.1}
+.cta-title em{color:var(--acc);font-style:italic}
+.cta-sub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:48px}
+.info-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.info-item{display:flex;flex-direction:column;gap:6px;align-items:center}
+.info-label{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--acc)}
+.info-val{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)}
+.btn-light{background:var(--white);color:var(--black)}
+footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+footer span{font-size:11px;color:var(--muted)}
+footer a{font-size:11px;color:var(--acc);text-decoration:none}
+@media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}.hero{padding:120px 24px 60px}section{padding:64px 24px}.prices-grid,.about-grid,.extras-grid{grid-template-columns:1fr}.cta-wrap{padding:80px 24px}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}}
+</style>
+</head>
+<body>
+<div class="badge"><span>Demo exclusiva — VAEL Studio</span><a href="https://vael.studio">vael.studio</a></div>
+<nav>
+  <div class="nav-logo" data-nome>Barbearia</div>
+  <div class="nav-links"><a href="#precos">Preços</a><a href="#sobre">Sobre</a><a href="#marcacao">Marcação</a></div>
+</nav>
+<div class="hero">
+  <div class="hero-rule"></div>
+  <p class="hero-eyebrow">Bem-vindo à</p>
+  <h1 class="hero-title" data-nome>Barbearia Lisboa</h1>
+  <p class="hero-sub">Corte clássico, estilo moderno. Onde cada detalhe é tratado com a precisão que merece.</p>
+  <div class="hero-actions">
+    <a href="#marcacao" class="btn btn-dark">Marcar Agora</a>
+    <a href="#precos" class="btn btn-outline">Ver Preços</a>
+  </div>
+</div>
+<div class="divider"></div>
+<section id="precos">
+  <div class="label">Serviços</div>
+  <div class="prices-grid">
+    <div class="price-card">
+      <div class="price-name">Corte</div>
+      <div class="price-desc">Lavagem, corte e styling completo.</div>
+      <div class="price-val"><sup>€</sup>20</div>
+    </div>
+    <div class="price-card featured">
+      <div class="featured-tag">Popular</div>
+      <div class="price-name">Corte & Barba</div>
+      <div class="price-desc">O serviço mais completo. O favorito dos clientes.</div>
+      <div class="price-val"><sup>€</sup>32</div>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Barba</div>
+      <div class="price-desc">Aparar, modelar e hidratação premium.</div>
+      <div class="price-val"><sup>€</sup>18</div>
+    </div>
+  </div>
+  <div class="extras-grid">
+    <div class="extra"><span class="extra-name">Hidratação capilar</span><span class="extra-price">+€8</span></div>
+    <div class="extra"><span class="extra-name">Sobrancelhas</span><span class="extra-price">+€6</span></div>
+    <div class="extra"><span class="extra-name">Máscara facial</span><span class="extra-price">+€10</span></div>
+    <div class="extra"><span class="extra-name">Coloração</span><span class="extra-price">+€15</span></div>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="sobre">
+  <div class="about-grid">
+    <div class="about-visual"><span>✂</span></div>
+    <div>
+      <div class="label">A nossa história</div>
+      <h2 class="about-title">Tradição e <em>detalhe</em><br>em cada corte</h2>
+      <p class="about-text">Na <span data-nome>nossa barbearia</span>, cada cliente recebe atenção total. Usamos apenas produtos de alta qualidade e as técnicas mais recentes.</p>
+      <p class="about-text">Venha relaxar e sair com um visual que faz a diferença.</p>
+    </div>
+  </div>
+</section>
+<div class="cta-wrap" id="marcacao">
+  <h2 class="cta-title">Reserve o seu <em>lugar</em></h2>
+  <p class="cta-sub">Marcações por telefone ou mensagem. Resposta imediata.</p>
+  <div class="info-row">
+    <div class="info-item"><span class="info-label">Telefone</span><span class="info-val" data-tel>+351 900 000 000</span></div>
+    <div class="info-item"><span class="info-label">Localização</span><span class="info-val" data-morada>Lisboa</span></div>
+  </div>
+  <a href="#" class="btn btn-light" data-tel-href>Ligar Agora</a>
+</div>
+<footer><span data-nome>Barbearia</span><span data-morada>Lisboa</span><a href="https://vael.studio">Site criado por VAEL</a></footer>
+<script>
+const p=new URLSearchParams(window.location.search);
+const nome=p.get('nome')||'Barbearia Lisboa';
+const tel=p.get('tel')||'+351 912 345 678';
+const morada=p.get('morada')||'Rua do Ouro 88, Lisboa';
+document.querySelectorAll('[data-nome]').forEach(e=>e.textContent=nome);
+document.querySelectorAll('[data-tel]').forEach(e=>e.textContent=tel);
+document.querySelectorAll('[data-tel-href]').forEach(e=>e.href='tel:'+tel.replace(/\s/g,''));
+document.querySelectorAll('[data-morada]').forEach(e=>e.textContent=morada);
+document.getElementById('page-title').textContent=nome;
+</script>
+</body>
+</html>
