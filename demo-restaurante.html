@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Restaurante — Demo VAEL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0d0705;--bg2:#150e09;--acc:#c4956a;--acc2:#e8b88a;--white:#f7f2eb;--muted:#5a4a3a;--border:rgba(196,149,106,0.15)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif}
+.vael-badge{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,7,5,0.95);border-bottom:1px solid var(--border);padding:8px 24px;display:flex;justify-content:space-between;align-items:center}
+.vael-badge span{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted)}
+.vael-badge a{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc);text-decoration:none}
+nav{position:fixed;top:33px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:24px 60px;background:linear-gradient(to bottom,rgba(13,7,5,0.9),transparent)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:0.25em;color:var(--white)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(247,242,235,0.6);text-decoration:none;transition:color 0.3s}
+.nav-links a:hover{color:var(--acc)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 40px 100px;background:radial-gradient(ellipse at 50% 40%,rgba(196,149,106,0.08),transparent 70%)}
+.hero-eyebrow{font-size:10px;letter-spacing:0.5em;text-transform:uppercase;color:var(--acc);margin-bottom:24px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,10vw,110px);font-weight:300;letter-spacing:0.05em;line-height:0.95;color:var(--white);margin-bottom:24px}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:rgba(247,242,235,0.5);margin-bottom:48px;max-width:480px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.btn{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:16px 40px;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block}
+.btn-gold{background:var(--acc);color:var(--bg)}
+.btn-gold:hover{background:var(--acc2)}
+.btn-outline{border:1px solid var(--border);color:var(--white)}
+.btn-outline:hover{border-color:var(--acc);color:var(--acc)}
+.divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)}
+section{padding:100px 60px;max-width:1100px;margin:0 auto}
+.label{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--acc);margin-bottom:48px;display:flex;align-items:center;gap:16px}
+.label::after{content:'';width:40px;height:1px;background:var(--acc);opacity:0.4}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.menu-cat{padding:40px 32px;border:1px solid var(--border);transition:all 0.3s}
+.menu-cat:hover{border-color:var(--acc);background:rgba(196,149,106,0.03)}
+.cat-icon{font-size:28px;margin-bottom:16px}
+.cat-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--white);margin-bottom:12px}
+.cat-items{font-size:13px;font-weight:300;color:var(--muted);line-height:2}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-visual{height:360px;background:linear-gradient(135deg,var(--bg2),rgba(196,149,106,0.08));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.about-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(196,149,106,0.1),transparent 60%)}
+.about-visual span{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(196,149,106,0.15);letter-spacing:0.1em}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:300;line-height:1.2;color:var(--white);margin-bottom:24px}
+.about-title em{color:var(--acc);font-style:italic}
+.about-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.hours-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.hour-item{padding:20px 24px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.hour-day{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.hour-time{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--white)}
+.contact-section{text-align:center;padding:100px 60px}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);font-weight:300;color:var(--white);margin-bottom:16px}
+.contact-title em{color:var(--acc);font-style:italic}
+.contact-sub{font-size:14px;font-weight:300;color:var(--muted);margin-bottom:48px}
+.contact-info{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.info-item{display:flex;flex-direction:column;gap:4px;align-items:center}
+.info-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--acc)}
+.info-val{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)}
+footer{border-top:1px solid var(--border);padding:32px 60px;display:flex;justify-content:space-between;align-items:center}
+footer span{font-size:11px;color:var(--muted)}
+footer a{font-size:11px;color:var(--acc);text-decoration:none;letter-spacing:0.1em}
+@media(max-width:768px){nav{padding:16px 20px}.nav-links{display:none}section{padding:60px 24px}.menu-grid,.about-grid,.hours-grid{grid-template-columns:1fr}.contact-section{padding:60px 24px}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}}
+</style>
+</head>
+<body>
+<div class="vael-badge">
+  <span>Demo exclusiva criada por VAEL</span>
+  <a href="https://vael.studio">vael.studio</a>
+</div>
+<nav>
+  <div class="nav-logo" data-nome>Nome do Restaurante</div>
+  <div class="nav-links">
+    <a href="#menu">Menu</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#horarios">Horários</a>
+    <a href="#contacto">Reserva</a>
+  </div>
+</nav>
+<section class="hero" style="max-width:100%;padding:140px 40px 100px">
+  <p class="hero-eyebrow">Bem-vindo a</p>
+  <h1 class="hero-title" data-nome>Nome do Restaurante</h1>
+  <p class="hero-sub">Uma experiência gastronómica única no coração de Lisboa.</p>
+  <div class="hero-actions">
+    <a href="#contacto" class="btn btn-gold">Fazer Reserva</a>
+    <a href="#menu" class="btn btn-outline">Ver Menu</a>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="menu">
+  <div class="label">O nosso menu</div>
+  <div class="menu-grid">
+    <div class="menu-cat">
+      <div class="cat-icon">🥗</div>
+      <div class="cat-name">Entradas</div>
+      <div class="cat-items">Sopa do dia<br>Tabua de queijos<br>Croquetes caseiros<br>Carpaccio</div>
+    </div>
+    <div class="menu-cat">
+      <div class="cat-icon">🍽️</div>
+      <div class="cat-name">Pratos</div>
+      <div class="cat-items">Bacalhau à Brás<br>Bife da vazia<br>Arroz de pato<br>Polvo grelhado</div>
+    </div>
+    <div class="menu-cat">
+      <div class="cat-icon">🍮</div>
+      <div class="cat-name">Sobremesas</div>
+      <div class="cat-items">Pastel de nata<br>Mousse de chocolate<br>Leite creme<br>Tarte de amêndoa</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="sobre">
+  <div class="about-grid">
+    <div class="about-visual"><span>★</span></div>
+    <div>
+      <div class="label">A nossa história</div>
+      <h2 class="about-title">Tradição e <em>sabor</em> em cada prato</h2>
+      <p class="about-text">Com mais de uma década de experiência, o <span data-nome>nosso restaurante</span> é um espaço dedicado à gastronomia portuguesa de qualidade, com ingredientes frescos e receitas que passam de geração em geração.</p>
+      <p class="about-text">Venha descobrir o melhor da cozinha portuguesa num ambiente acolhedor e sofisticado.</p>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="horarios">
+  <div class="label">Horários</div>
+  <div class="hours-grid">
+    <div class="hour-item"><span class="hour-day">Segunda — Quinta</span><span class="hour-time">12h — 23h</span></div>
+    <div class="hour-item"><span class="hour-day">Sexta — Sábado</span><span class="hour-time">12h — 00h</span></div>
+    <div class="hour-item"><span class="hour-day">Domingo</span><span class="hour-time">12h — 22h</span></div>
+    <div class="hour-item"><span class="hour-day">Encerrado</span><span class="hour-time">—</span></div>
+  </div>
+</section>
+<div class="divider"></div>
+<div class="contact-section" id="contacto">
+  <h2 class="contact-title">Faça a sua <em>reserva</em></h2>
+  <p class="contact-sub">Reserve a sua mesa diretamente por telefone ou email.</p>
+  <div class="contact-info">
+    <div class="info-item"><span class="info-label">Telefone</span><span class="info-val" data-tel>+351 900 000 000</span></div>
+    <div class="info-item"><span class="info-label">Morada</span><span class="info-val" data-morada>Lisboa, Portugal</span></div>
+  </div>
+  <a href="#" class="btn btn-gold" data-tel-href>Ligar Agora</a>
+</div>
+<footer>
+  <span data-nome>Nome do Restaurante</span>
+  <span data-morada>Lisboa</span>
+  <a href="https://vael.studio">Site criado por VAEL</a>
+</footer>
+<script>
+const p=new URLSearchParams(window.location.search);
+const nome=p.get('nome')||'Restaurante Lisboa';
+const tel=p.get('tel')||'+351 912 345 678';
+const morada=p.get('morada')||'Rua das Flores 42, Lisboa';
+document.querySelectorAll('[data-nome]').forEach(e=>e.textContent=nome);
+document.querySelectorAll('[data-tel]').forEach(e=>e.textContent=tel);
+document.querySelectorAll('[data-tel-href]').forEach(e=>e.href='tel:'+tel.replace(/\s/g,''));
+document.querySelectorAll('[data-morada]').forEach(e=>e.textContent=morada);
+document.getElementById('page-title').textContent=nome+' — Restaurante';
+</script>
+</body>
+</html>
