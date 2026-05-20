@@ -4,107 +4,127 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Estética — VAEL</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#faf8f6;--white:#ffffff;--black:#0d0d0d;--acc:#b08a7a;--muted:#a09490;--border:#ede8e4;--light:#f4f0ec}
+:root{--bg:#f8f5f2;--white:#ffffff;--black:#111010;--acc:#b08878;--muted:#7a706a;--border:#e4dcd8;--cream:#f2ebe6}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--black);font-family:'Outfit',sans-serif}
-.badge{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);padding:7px 40px;display:flex;justify-content:space-between;align-items:center}
-.badge span{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
-.badge a{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--acc);text-decoration:none}
-nav{position:fixed;top:33px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(250,248,246,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:0.2em;color:var(--black)}
-.nav-links{display:flex;gap:36px}
-.nav-links a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.3s}
+body{background:var(--white);color:var(--black);font-family:'Outfit',sans-serif}
+.badge{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);padding:7px 40px;display:flex;justify-content:space-between}
+.badge span{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35)}
+.badge a{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--acc);text-decoration:none}
+nav{position:fixed;top:31px;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:18px 56px;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Playfair Display',serif;font-size:19px;font-weight:400;letter-spacing:0.12em;color:var(--black)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.25s}
 .nav-links a:hover{color:var(--black)}
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 60px 80px;gap:80px}
-.hero-rule{width:1px;height:56px;background:var(--acc);opacity:0.6;margin-bottom:32px}
-.hero-eyebrow{font-size:10px;letter-spacing:0.5em;text-transform:uppercase;color:var(--acc);margin-bottom:16px}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7vw,80px);font-weight:300;letter-spacing:0.02em;line-height:1;color:var(--black);margin-bottom:20px}
-.hero-title em{color:var(--acc);font-style:italic}
-.hero-sub{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:40px;max-width:380px}
-.hero-visual{height:520px;background:var(--light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
-.hero-visual span{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;color:var(--border)}
-.btn{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:15px 40px;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;font-weight:400}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:96px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:64px 56px}
+.hero-tag{font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--acc)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,66px);font-weight:700;line-height:1.05;color:var(--black);margin-bottom:20px}
+.hero-title em{font-weight:400;font-style:italic;color:var(--acc)}
+.hero-sub{font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;margin-bottom:36px;max-width:380px}
+.hero-meta{display:flex;gap:32px;margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+.meta-item{display:flex;flex-direction:column;gap:3px}
+.meta-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--acc)}
+.meta-val{font-size:15px;font-weight:500;color:var(--black)}
+.actions{display:flex;gap:10px}
+.btn{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;padding:14px 36px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block;font-weight:500}
 .btn-dark{background:var(--black);color:var(--white)}
-.btn-outline{border:1px solid #ccc8c4;color:var(--black);margin-left:12px}
-.btn-outline:hover{border-color:var(--black)}
+.btn-out{border:1px solid var(--border);color:var(--black)}
+.btn-out:hover{border-color:var(--black)}
+.hero-right{background:var(--cream);display:flex;flex-direction:column;justify-content:flex-end;padding:48px;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;top:40px;left:40px;right:40px;bottom:40px;border:1px solid var(--border)}
+.hero-visual-title{font-family:'Playfair Display',serif;font-size:clamp(56px,8vw,108px);font-weight:700;color:rgba(176,136,120,0.1);line-height:0.9;position:relative;z-index:1}
+.hero-since{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:16px;position:relative;z-index:1}
 .divider{height:1px;background:var(--border)}
-section{padding:100px 60px;max-width:1080px;margin:0 auto}
-.label{font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--acc);margin-bottom:52px;display:flex;align-items:center;gap:16px}
-.label::after{content:'';width:32px;height:1px;background:var(--acc);opacity:0.5}
+.sec{padding:72px 56px;max-width:1100px;margin:0 auto}
+.sec-alt{background:var(--bg)}
+.label{font-size:10px;letter-spacing:0.42em;text-transform:uppercase;color:var(--acc);margin-bottom:40px;display:flex;align-items:center;gap:12px}
+.label::after{content:'';width:28px;height:1px;background:var(--acc);opacity:0.6}
 .services-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
-.svc{background:var(--bg);padding:32px 36px;display:flex;justify-content:space-between;align-items:center;transition:background 0.3s}
-.svc:hover{background:var(--white)}
-.svc-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--black);margin-bottom:4px}
+.svc{background:var(--white);padding:28px 32px;display:flex;justify-content:space-between;align-items:center;transition:background 0.25s}
+.sec-alt .svc{background:var(--bg)}
+.svc:hover{background:var(--cream)}
+.svc-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;color:var(--black);margin-bottom:4px}
 .svc-desc{font-size:12px;font-weight:300;color:var(--muted)}
-.svc-price{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--acc);font-weight:300;white-space:nowrap;margin-left:24px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-visual{height:400px;background:var(--light);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
-.about-visual span{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--border)}
-.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);font-weight:300;line-height:1.15;color:var(--black);margin-bottom:24px}
-.about-title em{color:var(--acc);font-style:italic}
-.about-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:16px}
-.cta-wrap{background:var(--black);padding:120px 60px;text-align:center}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);font-weight:300;color:var(--white);margin-bottom:14px;line-height:1.1}
-.cta-title em{color:var(--acc);font-style:italic}
-.cta-sub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:48px}
-.info-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.info-item{display:flex;flex-direction:column;gap:6px;align-items:center}
-.info-label{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--acc)}
-.info-val{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--white)}
+.svc-price{font-size:20px;font-weight:500;color:var(--acc);white-space:nowrap;margin-left:20px}
+.about-grid{display:grid;grid-template-columns:6fr 5fr;gap:64px;align-items:center}
+.about-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1.15;color:var(--black);margin-bottom:20px}
+.about-title em{font-weight:400;font-style:italic;color:var(--acc)}
+.about-text{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:14px}
+.about-img{height:400px;background:var(--cream);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.about-img::after{content:'';position:absolute;inset:16px;border:1px solid var(--border)}
+.about-img span{font-family:'Playfair Display',serif;font-size:80px;font-weight:700;color:rgba(176,136,120,0.1);position:relative;z-index:1}
+.cta-wrap{background:var(--black);padding:96px 56px;text-align:center}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4.5vw,54px);font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.1}
+.cta-title em{font-weight:400;font-style:italic;color:var(--acc)}
+.cta-sub{font-size:13px;font-weight:300;color:rgba(255,255,255,0.4);margin-bottom:40px}
+.info-row{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.info-item{display:flex;flex-direction:column;gap:5px;align-items:center}
+.info-label{font-size:9px;letter-spacing:0.38em;text-transform:uppercase;color:var(--acc)}
+.info-val{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;color:var(--white)}
 .btn-light{background:var(--white);color:var(--black)}
-footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+footer{padding:24px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
 footer span{font-size:11px;color:var(--muted)}
 footer a{font-size:11px;color:var(--acc);text-decoration:none}
-@media(max-width:768px){.hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:40px}.hero-visual{height:260px}nav{padding:16px 20px}.nav-links{display:none}section{padding:64px 24px}.services-list,.about-grid{grid-template-columns:1fr}.cta-wrap{padding:80px 24px}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}}
+@media(max-width:768px){.hero{grid-template-columns:1fr}.hero-right{display:none}nav{padding:14px 20px}.nav-links{display:none}.hero-left{padding:40px 24px}.sec{padding:52px 24px}.services-list,.about-grid{grid-template-columns:1fr}.cta-wrap{padding:72px 24px}footer{flex-direction:column;gap:10px;text-align:center;padding:20px}}
 </style>
 </head>
 <body>
 <div class="badge"><span>Demo exclusiva — VAEL Studio</span><a href="https://vael.studio">vael.studio</a></div>
 <nav>
-  <div class="nav-logo" data-nome>Studio</div>
+  <div class="logo" data-nome>Studio</div>
   <div class="nav-links"><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#marcacao">Marcação</a></div>
 </nav>
 <div class="hero">
-  <div>
-    <div class="hero-rule"></div>
-    <p class="hero-eyebrow">Bem-vinda ao</p>
-    <h1 class="hero-title" data-nome>Studio <em>Glow</em></h1>
-    <p class="hero-sub">Tratamentos personalizados para realçar a sua beleza natural. Num ambiente exclusivo, pensado para si.</p>
-    <a href="#marcacao" class="btn btn-dark">Marcar Consulta</a>
-    <a href="#servicos" class="btn btn-outline">Serviços</a>
+  <div class="hero-left">
+    <p class="hero-tag">Bem-vinda ao</p>
+    <h1 class="hero-title" data-nome>Studio<br><em>Glow</em></h1>
+    <p class="hero-sub">Tratamentos personalizados para realçar a sua beleza natural. Um espaço exclusivo, pensado para si.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-label">Avaliação</span><span class="meta-val">4.9 ★</span></div>
+      <div class="meta-item"><span class="meta-label">Clientes</span><span class="meta-val">500+</span></div>
+      <div class="meta-item"><span class="meta-label">Localização</span><span class="meta-val" data-morada>Lisboa</span></div>
+    </div>
+    <div class="actions">
+      <a href="#marcacao" class="btn btn-dark">Marcar Consulta</a>
+      <a href="#servicos" class="btn btn-out">Serviços</a>
+    </div>
   </div>
-  <div class="hero-visual"><span>✦</span></div>
+  <div class="hero-right">
+    <div class="hero-visual-title" data-nome>Studio.</div>
+    <p class="hero-since">Beleza · Bem-estar</p>
+  </div>
 </div>
 <div class="divider"></div>
-<section id="servicos">
+<div class="sec-alt" id="servicos"><div class="sec">
   <div class="label">Serviços</div>
   <div class="services-list">
-    <div class="svc"><div><div class="svc-name">Tratamento Facial</div><div class="svc-desc">Limpeza profunda · Hidratação · Anti-idade</div></div><div class="svc-price">€65</div></div>
-    <div class="svc"><div><div class="svc-name">Extensão de Pestanas</div><div class="svc-desc">Volume clássico · Mega volume · Natural</div></div><div class="svc-price">€80</div></div>
+    <div class="svc"><div><div class="svc-name">Tratamento Facial</div><div class="svc-desc">Limpeza · Hidratação · Anti-idade</div></div><div class="svc-price">€65</div></div>
+    <div class="svc"><div><div class="svc-name">Extensão de Pestanas</div><div class="svc-desc">Clássico · Volume · Natural</div></div><div class="svc-price">€80</div></div>
     <div class="svc"><div><div class="svc-name">Unhas em Gel</div><div class="svc-desc">Manicure · Pedicure · Nail art</div></div><div class="svc-price">€45</div></div>
-    <div class="svc"><div><div class="svc-name">Massagem Relaxante</div><div class="svc-desc">Corpo inteiro · Pedras quentes · Aromaterapia</div></div><div class="svc-price">€70</div></div>
-    <div class="svc"><div><div class="svc-name">Depilação Laser</div><div class="svc-desc">Zonas parciais · Zonas completas</div></div><div class="svc-price">a partir €35</div></div>
+    <div class="svc"><div><div class="svc-name">Massagem Relaxante</div><div class="svc-desc">Corpo inteiro · Aromaterapia</div></div><div class="svc-price">€70</div></div>
+    <div class="svc"><div><div class="svc-name">Depilação Laser</div><div class="svc-desc">Zonas parciais e completas</div></div><div class="svc-price">€35+</div></div>
     <div class="svc"><div><div class="svc-name">Maquilhagem</div><div class="svc-desc">Noiva · Cerimónia · Quotidiana</div></div><div class="svc-price">€55</div></div>
   </div>
-</section>
+</div></div>
 <div class="divider"></div>
-<section id="sobre">
+<div id="sobre"><div class="sec">
   <div class="about-grid">
     <div>
       <div class="label">Sobre nós</div>
       <h2 class="about-title">Beleza com <em>propósito</em></h2>
-      <p class="about-text">No <span data-nome>nosso studio</span> acreditamos que cada pessoa é única. Por isso, cada tratamento é pensado e personalizado para si, com produtos de alta qualidade.</p>
-      <p class="about-text">Um espaço criado para que se sinta verdadeiramente bem.</p>
+      <p class="about-text">No <span data-nome>nosso studio</span> cada tratamento é personalizado para si. Usamos produtos de alta qualidade e técnicas avançadas num espaço que convida à calma.</p>
+      <p class="about-text">Porque cuidar de si não é um luxo — é uma necessidade.</p>
     </div>
-    <div class="about-visual"><span>♦</span></div>
+    <div class="about-img"><span>♦</span></div>
   </div>
-</section>
+</div></div>
 <div class="cta-wrap" id="marcacao">
   <h2 class="cta-title">Reserve o seu <em>momento</em></h2>
-  <p class="cta-sub">Contacte-nos para marcar a sua consulta.</p>
+  <p class="cta-sub">Contacte-nos para marcar. Resposta em menos de 24h.</p>
   <div class="info-row">
     <div class="info-item"><span class="info-label">Telefone</span><span class="info-val" data-tel>+351 900 000 000</span></div>
     <div class="info-item"><span class="info-label">Localização</span><span class="info-val" data-morada>Lisboa</span></div>
@@ -116,7 +136,7 @@ footer a{font-size:11px;color:var(--acc);text-decoration:none}
 const p=new URLSearchParams(window.location.search);
 const nome=p.get('nome')||'Studio Glow';
 const tel=p.get('tel')||'+351 912 345 678';
-const morada=p.get('morada')||'Avenida da Liberdade, Lisboa';
+const morada=p.get('morada')||'Lisboa';
 document.querySelectorAll('[data-nome]').forEach(e=>e.textContent=nome);
 document.querySelectorAll('[data-tel]').forEach(e=>e.textContent=tel);
 document.querySelectorAll('[data-tel-href]').forEach(e=>e.href='tel:'+tel.replace(/\s/g,''));
